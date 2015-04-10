@@ -1,0 +1,261 @@
+<div ng-init="inicio()">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>{{ titulo }}</h1>
+		</div>
+		<div class="col-md-6">
+			<div class="clave">
+				Hospitalario:<span class="digito">{{ hospitalario }}</span>
+			</div>
+		</div>
+	</div>
+	<form name="formHos" novalidate>
+	<fieldset>
+		<legend>Datos</legend>
+	</fieldset>
+	<div class="row">
+	
+		<div class="col-md-2">
+	        <label for="folio">Folio Registro MV</label>
+	        <input type="text" ng-disabled="edicion" id="folio" class="form-control  input-lg" ng-keydown="presionaFolio"  ng-maxlength="10" ng-model="datos.folio"  mayusculas >
+	    </div>
+		<div class="col-md-2">
+	        <label for="folio">Fecha Atencion</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.fechaatencion" data-date-format="YYYY-MM-DD" id="fechaAt">
+	    </div>
+	    <div class="col-md-2">
+	        <label for="folio">Fecha Hospitalario</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.fechahospitalario" data-date-format="YYYY-MM-DD" id="fechaHos">
+	    </div>
+		<!-- <div class="col-md-2">
+	        <label for="folio">Hora del Reporte</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.horareporte" data-format="hh:mm:ss" id="horaRep">
+	    </div> -->
+	
+	</div>
+	<hr>
+	<div class="row">
+
+		<div class="col-md-3">
+			<label for="cliente">Cliente</label>
+			<select ng-disabled="edicion" class="form-control  input-lg"  ng-model="datos.cliente" ng-options="cliente.id as cliente.Nombre for cliente in clientes" required>
+				<option value="">Cliente</option>
+			</select>
+		</div>
+
+		<div class="col-md-3">
+	        <label for="folio">Poliza</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg"  ng-model="datos.poliza"  mayusculas >
+	    </div>
+
+
+	    <div class="col-md-2">
+	        <label for="inciso">Inciso</label>
+	        <input type="text" ng-disabled="edicion" id="inciso" class="form-control  input-lg"  ng-model="datos.inciso"  mayusculas >
+	    </div>
+
+	    <div class="col-md-2">
+	        <label for="folio">Siniestro</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg"  ng-model="datos.siniestro"  mayusculas >
+	    </div>
+
+	    <div class="col-md-2">
+	        <label for="folio">Reporte</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg"   ng-model="datos.reporte"  mayusculas >
+	    </div>
+		
+	</div>
+	<br>
+	<div class="row">
+
+	    <div class="col-md-6">
+	        <label for="folio">Asegurado</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg"  ng-model="datos.asegurado"  mayusculas >
+	    </div>
+
+	    <div class="col-md-3">
+          <label for="unidad">Unidad Médica</label>
+          <select ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades" required>
+            <option value="">Unidad</option>
+          </select>
+        </div>
+		
+	</div>
+	<br>
+	<fieldset>
+		<legend>Lesionado</legend>
+	</fieldset>
+	<div class="row">
+		
+		<div class="col-md-6">
+	        <label for="folio">Nombre</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.nombrelesionado"  mayusculas required>
+	    </div>
+		
+		<div class="col-md-2">
+			<label for="cliente">Riesgo</label>
+			<select ng-disabled="edicion" class="form-control  input-lg"  ng-model="datos.riesgo" ng-options="riesgo.id as riesgo.Nombre for riesgo in riesgos" >
+				<option value="">Riesgo</option>
+			</select>
+		</div>
+		
+		<div class="col-md-2">
+			<label for="cliente">Posición</label>
+			<select ng-disabled="edicion" class="form-control  input-lg"  ng-model="datos.posicion" ng-options="posicion.id as posicion.Nombre for posicion in posiciones" >
+				<option value="">Posicion</option>
+			</select>
+		</div>
+		
+	    <div class="col-md-2">
+	        <label for="folio">Edad</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.edad" numeros required>
+	    </div>
+		
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-12">
+	        <label for="domicilio">Domicilio o Telefono:</label>
+	        <textarea ng-disabled="edicion" name="domicilio" id="domicilio" class="form-control " ng-model="datos.domicilio" rows="5" mayusculas></textarea>
+	    </div>
+
+	</div>
+	<br>
+	<fieldset>
+		<legend>Datos Adicionales</legend>
+	</fieldset>
+	<div class="row">
+		
+		<div class="col-md-6">
+	        <label for="folio">Ajustador</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.ajustador"  mayusculas >
+	    </div>
+
+		<div class="col-md-3">
+	        <label for="folio">Clave del Ajustador</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.claveajustador"  mayusculas >
+	    </div>
+
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-6">
+	        <label for="folio">Quien Reporta</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.reporta"  mayusculas >
+	    </div>
+
+		<div class="col-md-6">
+	        <label for="folio">Quien Autoriza</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.autoriza"  mayusculas >
+	    </div>
+
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-6">
+	        <label for="folio">Traslado A:</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.traslado"  mayusculas >
+	    </div>
+
+		<div class="col-md-3">
+			<br>
+	        <label for="folio">Ambulancia</label>
+	        <label class="radio-inline">
+			  <input type="radio" name="inlineRadioOptions" ng-model="datos.ambulancia" id="inlineRadio1" value="1"> SI
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="inlineRadioOptions" ng-model="datos.ambulancia" id="inlineRadio2" value="0"> NO
+			</label>
+	    </div>
+
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-12">
+	        <label for="folio">Motivo de Hospitalización:</label>
+	        <textarea ng-disabled="edicion" name="motivo" id="motivo" class="form-control " ng-model="datos.motivo" rows="5" mayusculas></textarea>
+	    </div>
+
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-12">
+	        <label for="folio">Observaciones:</label>
+	        <textarea ng-disabled="edicion" name="motivo" id="motivo" class="form-control " ng-model="datos.observaciones" rows="5" mayusculas></textarea>
+	    </div>
+
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-12">
+	        <label for="folio">Otros:</label>
+	        <textarea ng-disabled="edicion" name="motivo" id="motivo" class="form-control " ng-model="datos.otros" rows="5" mayusculas></textarea>
+	    </div>
+	    <!-- <div class="col-md-2">
+	        <label for="folio">Hora fin Reporte</label>
+	        <input type="text" ng-disabled="edicion" class="form-control  input-lg" ng-model="datos.horarfineporte" data-format="hh:mm:ss" id="horaFinRep">
+	    </div> -->
+
+	</div>
+	<hr>
+	<div ng-show="mensaje" class="alert  animate-show text-center" ng-class="tipoalerta">{{mensaje}}</div>
+	<br>
+	<div class="row text-center">
+		<div class="col-md-3">
+			<button type="button" ng-click="guardar()" ng-hide="edicion" ng-disabled="formHos.$invalid" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar</button>
+			<br>
+		</div>
+		<div class="col-md-3">
+			<a href="#/hospitalarios" ng-click="inicio()" class="btn btn-default btn-lg glyphicon glyphicon-book btn-block" > Limpiar</a>
+			<br>
+		</div>
+		<div class="col-md-3">
+			<a href="#/" class="btn btn-danger btn-block glyphicon btn-lg glyphicon-circle-arrow-left"> Regresar</a>
+			<br>
+		</div>
+
+	</div>
+	</form>
+	<br>
+	<br>
+	<br>
+	
+
+<script>
+
+	$('#fechaAt').datetimepicker({
+
+		pickDate: true,                 //en/disables the date picker
+	    pickTime: false,                 //en/disables the time picker     
+	    showToday: true,                 //shows the today indicator
+	    language:'es'                  //sets language locale
+
+    });
+
+    $('#fechaHos').datetimepicker({
+
+		pickDate: true,                 //en/disables the date picker
+	    pickTime: false,                 //en/disables the time picker     
+	    showToday: true,                 //shows the today indicator
+	    language:'es'                  //sets language locale
+
+    });
+
+    $('#horaRep').datetimepicker({
+      pickDate: false,
+      pickTime: true
+    });
+
+    $('#horaFinRep').datetimepicker({
+      pickDate: false,
+      pickTime: true
+
+    });
+
+</script>

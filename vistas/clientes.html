@@ -1,0 +1,767 @@
+<div ng-init="inicio()" class="text-center">
+	<h1>Selecciona Cliente</h1>
+</div>
+<div class="Panel-body">
+
+	<div class="row">
+		
+      	<div class="col-md-3 col-sm-6">
+
+			<div class="container" style="width: 100%"> 
+			   <div class="panel panel-INFO">
+			        <div class="panel-heading">
+			         	<h3 class="panel-title" align="center">ABA SEGUROS </h3>
+			        </div> 
+			  		<div class="Panel-body">
+						<div class="row">
+			      			<div class="col-md-12">
+	 							<a ng-click="asignaCliente('ABA',1,'logos/aba.jpg')" href=""  class="thumbnail">
+	      							<img src="logos/aba.jpg"  title="ABA">
+	   							</a>
+	   						</div>	
+			   			</div>
+			   		</div>
+			   	</div>
+			</div> 	
+
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				    <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">ACE SEGUROS</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+			      					<div class="col-md-12">
+			 							<a ng-click="asignaCliente('ACE',33,'logos/ace.bmp')" href="" class="thumbnail">
+			      						<img src="logos/ace.bmp"  title="ACE SEGUROS">
+			   							 </a>
+			   						</div>	
+				   				</div>
+				   			</div>
+				   	</div>
+				</div> 	      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+			<div class="container" style="width: 100%"> 
+			   <div class="panel panel-INFO">
+			        <div class="panel-heading">
+                                        <h3 class="panel-title" align="center">AFIRME</h3>
+			        </div> 
+			  		<div class="Panel-body">
+						<div class="row">
+	      					<div class="col-md-12">
+	 							<a ng-click="asignaCliente('AFIRME',2,'logos/afirme.jpg')" href="" class="thumbnail">
+	      							<img src="logos/afirme.jpg"  title="AFIRME">
+	   							</a>
+	   						</div>	
+			   			</div>
+			   		</div>
+			   	</div>
+			</div> 	      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">EL AGUILA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('AGUILA',3,'logos/aguila.jpg')" href="" class="thumbnail">
+				      						<img src="logos/aguila.jpg"  title="EL AGUILA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+	</div>
+    <div class="row">
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">AIG</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('AIG',4,'logos/aig.jpg')" href="" class="thumbnail">
+				      						<img src="logos/aig.jpg"  title="AIG">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">ANA </h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('ANA',5,'logos/ana.jpg')" href="" class="thumbnail">
+				      						<img src="logos/ana.jpg"  title="ANA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">ATLAS</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('ATLAS',6,'logos/atlas.jpg')" href="" class="thumbnail">
+				      						<img src="logos/atlas.jpg"  title="ATLAS">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">AXA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('AXA',7,'logos/axa.jpg')" href="" class="thumbnail">
+				      						<img src="logos/axa.jpg"  title="AXA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+    </div>
+    <div class="row">
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">BANORTE</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('BANORTE',8,'logos/banorte.jpg')" href="" class="thumbnail">
+				      						<img src="logos/banorte.jpg"  title="BANORTE">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">CI</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('CI',43,'logos/ci.jpg')" href="" class="thumbnail">
+				      						<img src="logos/ci.jpg"  title="CI">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">CORTESIA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('CORTESIA',44,'logos/medica.jpg')" href="" class="thumbnail">
+				      						<img src="logos/medica.jpg"  title="CORTESIA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">F.U.T.V. SECC 1</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('F.U.T.V. SECC 1',39,'logos/futv.JPG')" href="" class="thumbnail">
+				      						<img src="logos/futv.JPG"  title="F.U.T.V.">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>	
+
+    </div>
+    <div class="row">
+
+    	<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">F.U.T.V. SECC 2</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('F.U.T.V. SECC 2',40,'logos/futv2.JPG')" href="" class="thumbnail">
+				      						<img src="logos/futv2.JPG"  title="F.U.T.V. SECC2">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">GENERAL</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('GENERAL',9,'logos/general.jpg')" href="" class="thumbnail">
+				      						<img src="logos/general.jpg"  title="GENERAL">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">GNP</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('GNP',10,'logos/gnp.jpg')" href="" class="thumbnail">
+				      						<img src="logos/gnp.jpg"  title="GNP">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 				      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">GOA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('GOA',11,'logos/goa.jpg')" href="" class="thumbnail">
+				      						<img src="logos/goa.jpg"  title="GOA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+    </div>
+    <div class="row">
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+                                            <h3 class="panel-title" align="center">HDI</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('HDI',12,'logos/hdi.jpg')" href="" class="thumbnail">
+				      						<img src="logos/hdi.jpg"  title="HDI">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">HIR</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('HIR',31,'logos/hir.jpg')" href="" class="thumbnail">
+				      						<img src="logos/hir.jpg"  title="HRI">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">INBURSA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('INBURSA',45,'logos/inbursa.jpg')" href="" class="thumbnail">
+				      						<img src="logos/inbursa.jpg"  title="INBURSA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+                                            <h3 class="panel-title" align="center">LATINO</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('LATINO',14,'logos/latino.jpg')" href="" class="thumbnail">
+				      						<img src="logos/latino.jpg"  title="LATINO">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+    </div>
+    <div class="row">
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">LIDNORTE</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('LIDNORTE',41,'logos/lidnorte.JPG')" href="" class="thumbnail">
+				      						<img src="logos/lidnorte.JPG"  title="LIDNORTE">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">MAPFRE</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('MAPFRE',15,'logos/mapfre.jpg')" href="" class="thumbnail">
+				      						<img src="logos/mapfre.jpg"  title="MAPFRE">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">METROPOLITANA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('METROPOLITANA',16,'logos/metro.jpg')" href="" class="thumbnail">
+				      						<img src="logos/metro.jpg"  title="METROPOLITANA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">MULTIASISTENCIA / AFIRME</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('MULTIASISTENCIA',37,'logos/multiafirme.jpg')" href="" class="thumbnail">
+				      						<img src="logos/multiafirme.jpg"  title="MULTIASISTENIA / AFIRME">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+    </div>
+    <div class="row">
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">MULTIASISTENCIA / BANCOMER</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('MULTIBANCOMER',35,'logos/multibancomer.jpg')" href="" class="thumbnail">
+				      						<img src="logos/multibancomer.jpg"  title="MULTIASISTENCIA / BANCOMER">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">MULTIASISTENCIA / ZURICH</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('MULTIZURICH',36,'logos/multizurich.jpg')" href="" class="thumbnail">
+				      						<img src="logos/multizurich.jpg"  title="MULTIASISTENCIA / ZURICH">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">MULTIVA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('MULTIVA',17,'logos/multiva.jpg')" href="" class="thumbnail">
+				      						<img src="logos/multiva.jpg"  title="MULTIVA">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+    	<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">PARTICULARES</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('PARTIULARES',51,'logos/Ortho.jpg')" href="" class="thumbnail">
+				      						<img src="logos/Ortho.jpg"  title="ORTHO FAM">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+    </div>
+    <div class="row">
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">SEGUROS EL POTOSI</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('POTOSI',18,'logos/potosi.jpg')" href="" class="thumbnail">
+				      						<img src="logos/potosi.jpg"  title="SEGUROS EL POTOSI">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">PRIMERO SEGUROS</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('PRIMERO',22,'logos/primero.jpg')" href="" class="thumbnail">
+				      						<img src="logos/primero.jpg"  title="PRIMERO SEGUROS">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+                                            <h3 class="panel-title" align="center">QUÁLITAS</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('QUALITAS',19,'logos/qualitas.jpg')" href="" class="thumbnail">
+				      						<img src="logos/qualitas.jpg"  title="QUÁLITAS">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">RSA</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('RSA',20,'logos/rsa.jpg')" href="" class="thumbnail">
+				      							<img src="logos/rsa.jpg"  title="RSA">
+				   							</a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+		    
+    </div> 
+    <div class="row">
+  
+ 		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center"> SPT SEGUROS</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('SPT',32,'logos/spt.JPG')" href="" class="thumbnail">
+				      						<img src="logos/spt.JPG"  title="SPT SEGUROS">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">THONA SEGUROS</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('THONA',47,'logos/thona.jpg')" href="" class="thumbnail">
+				      						<img src="logos/thona.jpg"  title="THONA SEGUROS" >
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 		      	
+		</div>
+
+		<div class="col-md-3 col-sm-6">
+
+				<div class="container" style="width: 100%"> 
+				   <div class="panel panel-INFO">
+				        <div class="panel-heading">
+				         	<h3 class="panel-title" align="center">TTRAVOL</h3>
+				        </div> 
+				  			<div class="Panel-body">
+								<div class="row">
+				      					<div class="col-md-12">
+
+				 							<a ng-click="asignaCliente('TRAVOL',34,'logos/travol.jpg')" href="" class="thumbnail">
+				      						<img src="logos/travol.jpg"  title="TTRAVOL SEGUROS">
+				   							 </a>
+				   						</div>	
+				   				</div>
+				   			</div>
+				   		</div>
+				   	</div> 	      	
+		</div>
+
+    </div>
+</div>

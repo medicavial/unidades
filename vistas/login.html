@@ -1,0 +1,35 @@
+<div class="row text-center" ng-init="inicio()">
+	
+	<div class="login">
+		
+		<div class="padding">
+			<img src="img/logomv.png" alt="logo">
+		</div>
+		<form ng-submit="login()" class="capa">
+			<div class="loginheader">
+				Info Unidad
+			</div>
+			<div class="loginbody">
+				
+				<div class="form-group">
+				<input type="text" class="form-control" id="exampleInputEmail1" ng-model="user" placeholder="Usuario">
+				</div>
+				<br>
+				<div class="form-group">
+				<input type="password" class="form-control" id="exampleInputPassword1" ng-model="psw" placeholder="Contraseña">
+				</div>
+				<hr class="linea">
+			</div>
+			<div class="loginfooter">
+				<button type="submit" id="boton" data-loading-text="Verificando..." class="btn btn-default btn-block">Iniciar Sesion</button>
+				<br>
+			</div>
+		</form>
+		<br>
+		<div ng-show="mensaje" class="alert alert-danger alertas" role="alert"> 
+			{{ mensaje }} 
+		</div>
+		
+	</div>
+
+</div>

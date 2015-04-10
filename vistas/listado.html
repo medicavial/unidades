@@ -1,0 +1,52 @@
+<div ng-init="inicio()">
+
+    <h1>Listado de lesionados</h1>
+
+    <div class="row">
+      
+      <div class="col-lg-12">
+        <div class="widget">
+            <div class="widget-title"><i class="fa fa-cube"></i> Resultados de folios</div>
+            <div class="widget-body" collapse="tabla">
+                <button type="button" id="notificacion"  class="btn btn-default pull-right duda" data-container="body" data-toggle="popover">
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </button>
+                <br>
+                <div ng-show="cargando">
+                    <loading></loading>
+                </div>
+                <div ng-hide="cargando" class="tabla table-responsive" >
+                  <table  datatable="" dt-options="dtOptions"  dt-columns="dtColumns" class="table table-striped table-bordered">
+                  </table>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+    <br><br>
+
+
+</div>
+
+<!-- <div id="nota" style="display:none">
+    Antendido: Registro en Unidad
+    <hr>
+    En Operación: Captura
+    <hr>
+    Facturado : Con documento a cobro<br>
+</div> -->
+
+
+<script>
+    $('#notificacion').popover({
+        trigger:'focus',
+        placement : 'left',
+        'html':true,
+        title : 'Estatus del Expediente',
+        content :function() {
+                    return $("#nota").html();
+                }
+    });
+</script>
+

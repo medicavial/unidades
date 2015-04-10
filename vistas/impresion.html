@@ -1,0 +1,69 @@
+<div ng-init="inicio()">
+	<br>
+	<div class="container" ng-show="autorizacion">
+		<div class="row">
+			<div class="col-md-8">
+				<h4>
+					Autorizacion No.:<span class="digito">{{ autorizacion }}</span>
+				</h4>
+			</div>
+		</div>	
+		<h4> <strong>Datos</strong> </h4>
+		<br>
+
+		<div >
+	        Folio MV : {{ folio }}
+	    </div>
+
+	    <div>
+	        Fecha : {{ fecha }}
+	    </div>
+
+		<div>
+			Cliente : {{ cliente }}
+		</div>
+
+		<div>
+          	Unidad Médica : {{ unidad }}
+        </div>
+
+        <div>
+	        Edad : {{ edad }}
+	    </div>
+
+	    <div>
+		        Lesionado : {{ lesionado }}
+	    </div>
+
+	    <div>
+	        Medico Tratante : {{ medico }}
+	    </div>
+		<div>
+	       Diagnostico : {{ diagnostico }}
+	    </div>
+		<br>
+		<h4> <strong>Movimientos</strong> </h4>
+		<div class="table-responsive">
+			<table class="table">
+			    <thead>
+			        <tr>
+						<th>Clave</th>
+						<th>Tipo</th>
+						<th>Descripción</th>
+						<th>Fecha</th>
+						<th>Usuario</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr ng-repeat="movimiento in movimientos">
+						<td>{{movimiento.MOA_claveint}}</td>
+						<td>{{movimiento.TIM_nombre}}</td>
+						<td>{{movimiento.MOA_texto}}</td>
+						<td>{{movimiento.MOA_fecha}}</td>
+						<td>{{movimiento.Usu_login}}</td>
+			        </tr> 
+			    </tbody>
+		    </table>
+		</div>
+	</div>
+</div>

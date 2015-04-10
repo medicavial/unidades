@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="infounidad">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>infounidad - Medicavial</title>
+  <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="http://medicavial.net/infounidad/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="http://medicavial.net/infounidad/favicon-57.png">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://medicavial.net/infounidad/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="http://medicavial.net/infounidad/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="http://medicavial.net/infounidad/favicon-114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="http://medicavial.net/infounidad/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="http://medicavial.net/infounidad/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="http://medicavial.net/infounidad/favicon-152.png">
+  <meta name="application-name" content="infounidad MV">
+  <meta name="msapplication-TileImage" content="http://medicavial.net/infounidad/favicon-144.png">
+  <meta name="msapplication-TileColor" content="#2A2A2A" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/bootstrap-switch.min.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/dashboard/dashboard.css" />
+  <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="css/themes/blue.css" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/animaciones.css" />
+  <!-- <link rel="stylesheet" href="css/zoomy.css"/> -->
+  <link rel="stylesheet" href="css/image-zoom.min.css">
+  <link rel="stylesheet" href="css/datatables.bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/dataTables.colReorder.css"/>
+  <link rel="stylesheet" href="css/dataTables.colVis.css"/>
+  <link rel="stylesheet" href="css/dataTables.tableTools.css"/>
+  <link rel="stylesheet" href="css/jsTag.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <script src="js/prefixfree.min.js"></script>
+  <!--[if lt IE 9]>
+      <script>
+          location.href="http://www.medicavial.net/infounidad/navegadorviejo.html";
+      </script>
+  <![endif]-->
+</head>
+<body ng-cloak>
+  
+    <div id="page-wrapper" ng-class="{'active': toggle, 'oculto':cerrar}">
+    
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper" ng-show="username">
+        <ul class="sidebar">
+          <li class="sidebar-main">
+            <a href="" ng-click="toggleSidebar()">
+              MedicaVial
+              <span class="menu-icon glyphicon glyphicon-transfer"></span>
+            </a>
+          </li>
+          <li class="sidebar-title"><span>MENU</span></li>
+          <li class="sidebar-list">
+            <a href="#/home">Inicio <span class="menu-icon fa fa-home"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/historico">Historico de Atenciones <span class="menu-icon glyphicon glyphicon-book"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/sindocumentacion">Sin Documentación <span class="menu-icon glyphicon glyphicon-folder-open"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/tickets">Expedientes c/ problem.<span class="menu-icon fa fa-exclamation-triangle"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/busquedas">Busquedas <span class="menu-icon glyphicon glyphicon-zoom-in"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/facturas">Facturas <span class="menu-icon glyphicon glyphicon-usd"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/contacto">Contacto <span class="menu-icon glyphicon glyphicon-earphone"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="" >Reporte Ejecutivo <span class="menu-icon glyphicon glyphicon-paperclip"></span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/ayuda">Ayuda <span class="menu-icon glyphicon glyphicon-thumbs-up"></span></a>
+          </li>
+          <li class="sidebar-title separator"><span>Accesos</span></li>
+          <li class="sidebar-list">
+            <a href="http://www.medicavial.com.mx" target="_blank">MedicaVial <span class="menu-icon">MV</span></a>
+          </li>
+          <li class="sidebar-list">
+            <a href="http://registro.medicavial.com.mx" target="_blank">Registro MedicaVial <span class="menu-icon">MV</span></a>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <!-- <div class="col-xs-4">
+            <a href="https://github.com/Ehesp/Responsive-Dashboard" target="_blank">
+              Github
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <a href="#" target="_blank">
+              About
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <a href="#">
+              Support
+            </a>
+          </div> -->
+        </div>
+      </div>
+      <!-- Header Bar -->
+      <div class="row header" ng-class="{'active': toggle, 'oculto':cerrar}" ng-show="username">
+        <div class="col-xs-12 border-bottom">
+          <div class="meta pull-left">
+            <div class="page">
+              {{nombreUni}}
+            </div>
+            <!-- <div class="breadcrumb-links">
+              Inicio
+            </div> -->
+            
+          </div>
+          <div class="user pull-right">
+            <div class="item dropdown">
+              <a href="#" class="dropdown-toggle">
+                <img ng-src="img/user.ico">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-header">
+                  Usuario <br>
+                  <div class="visible-xs">
+                      <strong>{{ username }}</strong>
+                  </div>
+                </li>
+                <!-- <li class="divider"></li>
+                <li class="link">
+                  <a href="#">
+                    Perfil
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="#">
+                    Acceso 1
+                  </a>
+                </li>
+                <li class="link">
+                  <a href="#">
+                    Acceso 2
+                  </a>
+                </li> -->
+                <li class="divider"></li>
+                <li class="link">
+                  <a href="" ng-click="logout()">
+                    Cerrar Sesion
+                  </a>
+                </li>
+              </ul>               
+            </div>
+            <div class="usuario hidden-xs">
+              {{ username }} 
+              <!-- Usuario: {{ username }} <br>
+              Region: Nacional  -->
+            </div>
+            <!-- <div class="item dropdown">
+             <a href="#" class="dropdown-toggle">
+                <i class="fa fa-bell-o"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-header">
+                  Notificationes
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">Server Down!</a>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+      </div>      
+      <!-- End Header Bar -->
+
+      <!-- End Sidebar -->
+      <div id="content-wrapper">
+        <div class="page-content">
+
+          
+          <!-- <div class="load" ng-show="cargar">
+            <loading></loading>
+          </div> 
+          <div ng-hide="cargar">
+          </div>-->
+          <div class="padding">
+            <div ng-view class="paginas"></div>  
+          </div>
+
+          <div id="estatusinfo" class="text-center" ng-show="username">
+                  Información al {{fechahoy | date : 'dd/MM/yyyy h:mma'}} 
+          </div>
+          
+
+          <!-- End Main Content -->
+        </div><!-- End Page Content -->
+      </div>
+      <!-- End Content Wrapper -->
+    
+    </div><!-- End Page Wrapper -->
+    
+    <div id="nota" style="display:none">
+        <!-- Antendido: Registro en Unidad
+        <hr>
+        En Operación: Captura
+        <hr>
+        Facturado : Con documento a cobro<br> -->
+        En Construcción
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/xml2json.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="//js.live.net/v5.0/wl.js"></script>
+    <script src="js/bootstrap-switch.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/dataTables.colReorder.js"></script>
+    <script src="js/dataTables.colVis.js"></script>
+    <script src="js/dataTables.tableTools.js"></script>
+    <script src="js/moment-with-langs.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/angular-cookies.min.js"></script>
+    <script src="js/ng-bootstrap-tpls.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-datatables.min.js"></script>
+    <script src="js/angular-count-to.min.js"></script>
+    <script src="js/angular-bootstrap-switch.min.js"></script>
+    <script src="js/angular-webstorage.min.js"></script>
+    <script src="js/jsTag.min.js"></script>
+    <script src="js/amcharts.js"></script>
+    <script src="js/serial.js"></script> 
+    <script src="js/pie.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/directives.js"></script>
+    <script src="app/services.js"></script>
+    <script src="app/controller.js"></script>
+</body>
+</html>

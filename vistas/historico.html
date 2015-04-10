@@ -1,0 +1,121 @@
+<div ng-init="inicio()">
+    <br>
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-calendar fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{ ano | number }}</div>
+                            <div>Atenciones a 12 meses</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#/detalle/anual">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver Detalles</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-calendar-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{ mes | number }}</div>
+                            <div>Atenciones en el Mes</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#/detalle/mes">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver Detalles</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-edit fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{ dia | number }}</div>
+                            <div>Atenciones en el dia</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#/fechas/dia">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver Detalles</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-12">
+        <div class="widget">
+            <div class="widget-title"><i class="fa fa-file-text-o"></i> 
+                Atenciones acumuladas en los ultiimos 12 meses
+            </div>
+            <div class="widget-body">
+            <!-- Check out the Angular Directive inside bootstrap.js! -->
+            <div ruta="/detalle/anual" class="graficas" id="chartdiv-1"></div>
+            <!-- <barchart xkey="MES" ykeys="Cantidad" labels="Cantidad" data="datos2"></barchart> -->
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="widget">
+                <div class="widget-title"><i class="fa fa-cube"></i> Atenciones acumuladas por semanas del año</div>
+                <div class="widget-body">
+                    <!-- Check out the Angular Directive inside bootstrap.js! fa-spin -->
+                    <div class="graficas" id="chartdiv-2"></div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-lg-6">
+            <div class="widget">
+                <div class="widget-title"><i class="fa fa-cube"></i>Detalles estadisticos</div>
+                <div class="widget-body">
+                    
+                    
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // fa-spin
+
+</script>

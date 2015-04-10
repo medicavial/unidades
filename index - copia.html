@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en" ng-app="infoweb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <title>InfoWeb - Medicavial</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+  
+  <script src="js/prefixfree.min.js"></script>
+  <link rel="stylesheet"  href="css/bootstrap.min.css" />
+  <link rel="stylesheet"  href="css/font-awesome.min.css" />
+  <link rel="stylesheet"  href="css/dashboard/dashboard.css" />
+  <link rel="stylesheet"  href="css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet"  href="css/themes/blue.css" />
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+  <link href='http://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet"  href="css/animate.css" />
+  <link rel="stylesheet"  href="css/animaciones.css" />
+  <link rel="stylesheet"  href="css/datatables.bootstrap.min.css"/>
+  <link rel="stylesheet"  href="css/dataTables.colReorder.css"/>
+  <link rel="stylesheet"  href="css/dataTables.colVis.css"/>
+  <link rel="stylesheet"  href="css/dataTables.tableTools.css"/>
+  <link rel="stylesheet"  href="css/estilos.css" />
+  <!-- <link rel="stylesheet"  href="css/morris.css"/> -->
+  
+  <!--[if lt IE 9]>
+      <script>
+          location.href="http://www.medicavial.net/infoweb/navegadorviejo.html";
+      </script>
+  <![endif]-->
+
+</head>
+<body ng-cloak>
+  <div id="page-wrapper" ng-class="{'active': toggle, 'oculto':cerrar}">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper" ng-show="username">
+      <ul class="sidebar">
+        <li class="sidebar-main">
+          <a href="" ng-click="toggleSidebar()">
+            MedicaVial
+            <span class="menu-icon glyphicon glyphicon-transfer"></span>
+          </a>
+        </li>
+        <li ng-show="toggle" class="logo text-center">
+            <img ng-src="img/Qualitas.jpg" alt="logo">
+        </li>
+        <li class="sidebar-title"><span>MENU</span></li>
+        <li class="sidebar-list">
+          <a href="#/home">Inicio <span class="menu-icon fa fa-home"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#/busquedas">Busquedas <span class="menu-icon glyphicon glyphicon-zoom-in"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#/home">Configuración <span class="menu-icon fa fa-cogs"></span></a>
+        </li>
+        <li class="sidebar-title separator"><span>Accesos</span></li>
+        <li class="sidebar-list">
+          <a href="http://www.medicavial.com.mx" target="_blank">MedicaVial <span class="menu-icon">MV</span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#" target="_blank">Reportes Estadisticos <span class="menu-icon fa fa-bar-chart-o"></span></a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <!-- <div class="col-xs-4">
+          <a href="https://github.com/Ehesp/Responsive-Dashboard" target="_blank">
+            Github
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a href="#" target="_blank">
+            About
+          </a>
+        </div>
+        <div class="col-xs-4">
+          <a href="#">
+            Support
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <!-- Header Bar -->
+    <div class="row header" ng-class="{'active': toggle, 'oculto':cerrar}" ng-show="username">
+      <div class="col-xs-12 border-bottom">
+        <div class="meta pull-left">
+          <div class="page">
+            InfoWeb
+          </div>
+          <div class="breadcrumb-links">
+            Inicio
+          </div>
+          
+        </div>
+        <div class="user pull-right">
+          <div class="item dropdown">
+            <a href="#" class="dropdown-toggle">
+              <img src="img/avatar.jpg">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-header">
+                Usuario
+              </li>
+              <li class="divider"></li>
+              <li class="link">
+                <a href="#">
+                  Perfil
+                </a>
+              </li>
+              <li class="link">
+                <a href="#">
+                  Acceso 1
+                </a>
+              </li>
+              <li class="link">
+                <a href="#">
+                  Acceso 2
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li class="link">
+                <a href="#" ng-click="logout()">
+                  Cerrar Sesion
+                </a>
+              </li>
+            </ul>               
+          </div>
+          <div class="usuario">
+            Usuario: {{ user }} <br>
+            Region: Nacional 
+          </div>
+          <!-- <div class="item dropdown">
+           <a href="#" class="dropdown-toggle">
+              <i class="fa fa-bell-o"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-header">
+                Notificationes
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">Server Down!</a>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </div>      
+
+    <!-- End Header Bar -->
+    <!-- End Sidebar -->
+    <div id="content-wrapper">
+      <div class="page-content">
+
+        
+        <!-- <div class="load" ng-show="cargar">
+          <loading></loading>
+        </div> 
+        <div ng-hide="cargar">
+        </div>-->
+        <div class="contenedor">
+          <div ng-view class="paginas"></div>  
+        </div>
+
+        <div id="estatusinfo" class="text-center" ng-show="username">
+                Información al {{fechahoy | date : 'dd/MM/yyyy h:mma'}} 
+        </div>
+        
+
+        <!-- End Main Content -->
+      </div><!-- End Page Content -->
+    </div><!-- End Content Wrapper -->
+  </div><!-- End Page Wrapper -->
+  
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <!--  
+  <script src="js/angular-locale_es-mx.js"></script>
+  -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/dataTables.colReorder.js"></script>
+  <script src="js/dataTables.colVis.js"></script>
+  <script src="js/dataTables.tableTools.js"></script>
+  <script src="js/moment-with-langs.min.js"></script>
+  <script src="js/bootstrap-datetimepicker.min.js"></script>
+  <script src="js/angular-cookies.min.js"></script>
+  <script src="js/ng-bootstrap-tpls.min.js"></script>
+  <script src="js/angular-route.min.js"></script>
+  <script src="js/angular-animate.min.js"></script>
+  <script src="js/angular-datatables.min.js"></script>
+  <script src="js/angular-count-to.min.js"></script>
+  <!-- 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="js/raphael-min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script src="themes/none.js"></script>
+   -->
+  <script src="js/amcharts.js"></script>
+  <script src="js/serial.js"></script> 
+  <script src="js/pie.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controller.js"></script>
+
+</body>
+</html>

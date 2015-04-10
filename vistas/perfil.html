@@ -1,0 +1,46 @@
+<div class="row" ng-init="inicio()">
+	<h1>Mi Perfil</h1>
+	<div class="col-lg-12">
+        <div class="widget">
+            <div class="widget-title"><i class="glyphicon glyphicon-folder-open"></i> Detalles de Perfil</div>
+            <div class="widget-body">
+				
+				<div class="row">
+					<div class="col-md-6">
+						<div class="row">
+			                <div class="col-md-12">
+			                    <label for="">Nombre</label>
+			                    <input name="nombre" type="text" ng-model="datos.nombre" class="form-control" required />
+			                </div>
+			            </div>
+						<div class="row">
+			                <div class="col-md-12">
+			                    <label for="">Correo</label>
+			                    <input name="email" type="email" ng-model="datos.correo" class="form-control" required />
+			                </div>
+			            </div>
+					</div>
+					<div class="col-md-6">
+						Imagen de perfil
+					</div>
+				</div>
+	            <br>
+	            <div ng-show="mensaje" class="alert alert-danger alertas" role="alert"> 
+					{{ mensaje }} 
+				</div>
+	            <hr>
+	            <div class="row">
+	                <div class="col-md-12 text-right">
+	                    <button class="btn btn-primary">Guardar</button>
+	                </div>
+	            </div>
+				
+				
+            </div>
+        </div>
+    </div>
+	
+		
+	</div>
+
+</div>

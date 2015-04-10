@@ -1,0 +1,65 @@
+.alertas.ng-hide-add {
+
+    animation: fadeOutDown 0.5s;
+
+}
+
+.alertas.ng-hide-remove{
+    
+    animation: fadeInDown 0.5s;
+
+}
+
+.muestraderecha.ng-hide-add {
+
+    animation: fadeIn 0.5s;
+
+}
+
+.muestraderecha.ng-hide-remove{
+    
+    animation: fadeOut 0.5s;
+
+}
+
+.muestraderecha2.ng-hide-remove {
+
+    animation: fadeIn 0.5s;
+
+}
+
+.muestraderecha2.ng-hide-add{
+    
+    animation: fadeOut 0.5s;
+
+}
+
+.load.ng-hide-add {
+
+    animation: zoomIn 0.5s;
+
+}
+
+.load.ng-hide-remove{
+    
+    animation: zoomOut 0.5s;
+    
+}
+
+.paginas.ng-enter, .paginas.ng-leave {
+	
+	width: 100%;
+    position:absolute;
+}
+
+.paginas.ng-enter {
+
+    animation: fadeInUp 0.8s;
+ 
+}
+.paginas.ng-leave {
+
+    animation: fadeOutDown 0.8s;
+
+}
+

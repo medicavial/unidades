@@ -1,0 +1,174 @@
+<div ng-init="inicio()">
+    <h1>Bienvenido</h1>
+
+    <div ng-show="cargando">
+        <loading></loading>
+    </div>
+    <div ng-hide="cargando">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Estatus de Cuenta</h2>
+                <fieldset>
+                    <legend>Informacion correspondiente al periodo: <span class="text-primary">{{ inicio.periodo }}</span> <span ng-hide="inicio.periodo == fin.periodo">al <span class="text-primary">{{ fin.periodo }}</span></span>
+                        <span class="pull-right">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#periodos" ng-click="inicio = ''; fin= ''">
+                              Meses Anteriores
+                            </button>
+                        </span>
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Etapas 1</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="apuntador" ng-click="ir('registrados')">
+                            <label>Expedientes Registrados</label>
+                            <span class="pull-right"><strong>{{ total }}</strong></span>
+                        </div>
+                        
+                        <div class="apuntador" ng-click="ir('cancelados')">
+                            <label>Expedientes Cancelados</label>
+                            <span class="pull-right"><strong>{{ cancelados }}</strong></span>
+                        </div>
+                        <hr>
+                        <div class="apuntador" ng-click="ir('expedientes')">
+                            <label>Expedientes en el Periodo</label>
+                            <span class="pull-right"><strong>{{ buenos }}</strong></span>
+                        </div>
+                        <br>
+                        <div class="apuntador" ng-click="ir('sindocumentacion')">
+                            <label>Sin Documentación</label>
+                            <span class="pull-right"><strong>{{ sindocumentos }}</strong></span>
+                        </div>
+                        
+                        <div class="apuntador" ng-click="ir('problema')">
+                            <label>Con Problema</label>
+                            <span class="pull-right"><strong>{{ problema }}</strong></span>
+                        </div>
+                       
+                        <div class="apuntador" ng-click="ir('pagados')">
+                            <label>Pagados</label>
+                            <span class="pull-right"><strong>{{ pagados }}</strong></span>
+                        </div>
+
+                        <div class="apuntador">
+                            <label>Listos</label>
+                            <span class="pull-right"><strong>{{ listos }}</strong></span>
+                        </div>
+                        <div class="apuntador" ng-click="ir('proceso')">
+                            <label>En Proceso</label>
+                            <span class="pull-right"><strong>{{ procesos }}</strong></span>
+                        </div>
+                   
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Etapas 2</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="apuntador" ng-click="ir('etapa2')">
+                                    <label>Atenciones</label>
+                                    <span class="pull-right"><strong> {{etapa2}} </strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Etapas 3</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="apuntador" ng-click="ir('etapa3')">
+                                        <label>Atenciones</label>
+                                        <span class="pull-right"><strong> {{etapa3}} </strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-left">Pagado (Ultima fecha registrada {{fecha}}) </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="apuntador" ng-click="ir('pagoset1')">
+                            <label>Pagos Etapa 1</label>
+                            <span class="pull-right"><strong>{{pagoEt1 |currency }}</strong></span>
+                        </div>
+                        <div class="apuntador" ng-click="ir('pagoset2')">
+                            <label>Pagos Etapa 2</label>
+                            <span class="pull-right"><strong>{{pagoEt2 |currency }}</strong></span>
+                        </div>
+                        <div class="apuntador" ng-click="ir('pagoset3')">
+                            <label>Pagos Etapa 3</label>
+                            <span class="pull-right"><strong>{{pagoEt3 |currency }}</strong></span>
+                        </div>
+                        <hr>
+                        <div class="apuntador" ng-click="ir('pagoset')">
+                            <label>Total</label>
+                            <span class="pull-right"><strong>{{totalPagos |currency }}</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="periodos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Selecciona el reango o mes que necesitas</h4>
+      </div>
+      <div class="modal-body">
+            <div class="row">
+                
+                <div class="col-md-6">
+                    De
+                    <select class="form-control " name="periodos" ng-change="fin = inicio" ng-model="inicio" ng-options="periodo as periodo.periodo for periodo in periodos" required>
+                        <option value="">Selecciona periodo</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-6">
+                    Al
+                    <select class="form-control " name="periodos" ng-change="verificafechas()" ng-model="fin" ng-options="periodo as periodo.periodo for periodo in periodos" required>
+                        <option value="">Selecciona periodo</option>
+                    </select>
+                    
+                </div>
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-primary" ng-disabled="!fin" ng-click="buscaInfo()">Buscar</button>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

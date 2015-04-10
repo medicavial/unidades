@@ -1,0 +1,190 @@
+<div ng-init="inicio()">
+	<div class="row">
+		<div class="col-md-4">
+			<h1>{{ titulo }}</h1>
+		</div>
+		<div class="col-md-8">
+			<div class="valor row">
+
+				<div class="clave">
+					Autorizacion No.:<span class="digito">{{ autorizacion }}</span>
+				</div>
+				<div class="imprime">
+					<a href="#/impresion/autorizacion/{{ autorizacion }}"><i class="glyphicon glyphicon-print"></i></a>
+				</div>
+
+			</div>
+		</div>
+	</div>	
+	<fieldset>
+		<legend>Datos</legend>
+	</fieldset>
+	<form name="formAut" novalidate>
+	<div class="row">
+		<div class="col-md-2">
+	        <label for="folio">Folio MV</label>
+	        <input type="text" id="folio" class="form-control  input-lg" ng-keydown="presionaFolio" ng-maxlength="10" ng-disabled="edicion" ng-model="datos.folio"  mayusculas >
+	    </div>
+
+	    <div class="col-md-2">
+	        <label for="folio">Fecha</label>
+	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.fecha" data-date-format="YYYY-MM-DD" id="fechaAt">
+	    </div>
+
+		<div class="col-md-3">
+			<label for="cliente">Cliente</label>
+			<select class="form-control  input-lg"  ng-disabled="edicion" ng-model="datos.cliente" ng-options="cliente.id as cliente.Nombre for cliente in clientes" required>
+				<option value="">Cliente</option>
+			</select>
+		</div>
+
+		<div class="col-md-3">
+          <label for="unidad">Unidad Médica</label>
+          <select class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.unidad" ng-options="unidad.id as unidad.Nombre for unidad in unidades" required>
+            <option value="">Unidad</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+	        <label for="folio">Edad</label>
+	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.edad" numeros required>
+	    </div>
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-6">
+	        <label for="folio">Lesionado</label>
+	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.nombrelesionado"  mayusculas required>
+	    </div>
+
+	    <div class="col-md-6">
+	        <label for="folio">Medico Tratante</label>
+	        <input type="text" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.medico"  mayusculas >
+	    </div>
+
+	</div>
+	<br>
+	<div class="row">
+		
+		<div class="col-md-12">
+	        <label for="folio">Diagnostico</label>
+	        <textarea name="motivo" id="motivo" class="form-control  input-lg" ng-disabled="edicion" ng-model="datos.diagnostico" rows="5" mayusculas required></textarea>
+	    </div>
+
+	</div>
+	<fieldset>
+		<legend>
+			Movimientos
+		</legend>
+	</fieldset>
+	<button type="button" ng-show="autorizacion" ng-click="nuevomovimiento()" class="btn btn-primary margen-abajo glyphicon glyphicon-plus" data-toggle="modal" data-target="#movimiento">
+	  Agregar
+	</button>
+	<div class="table-responsive">
+		<table class="table">
+		    <thead>
+		        <tr>
+					<th>Clave</th>
+					<th>Tipo</th>
+					<th>Descripción</th>
+					<th>Fecha</th>
+					<th>Usuario</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr ng-repeat="movimiento in movimientos">
+					<td>{{movimiento.MOA_claveint}}</td>
+					<td>{{movimiento.TIM_nombre}}</td>
+					<td>{{movimiento.MOA_texto}}</td>
+					<td>{{movimiento.MOA_fecha}}</td>
+					<td>{{movimiento.Usu_login}}</td>
+		        </tr> 
+		    </tbody>
+	    </table>
+	</div>
+	<br>
+	<div ng-show="mensaje" class="alert  animate-show text-center" ng-class="tipoalerta">{{ mensaje }}</div>
+	<br>
+	<div class="row padding text-center">
+		<div class="col-md-3">
+			<button type="button" ng-hide="edicion" ng-click="guardar()" ng-disabled="formAut.$invalid" class="btn btn-primary btn-lg btn-block glyphicon glyphicon-floppy-disk"> Guardar</button>
+			<br>
+		</div>
+		<div class="col-md-3">
+			<a href="#/autorizaciones" ng-click="inicio()" class="btn btn-default btn-lg btn-block glyphicon glyphicon-book"> Limpiar</a>
+			<br>
+		</div>
+		<div class="col-md-3">
+			<a href="#/" class="btn btn-danger btn-lg btn-block glyphicon glyphicon-circle-arrow-left"> Regresar</a>
+			<br>
+		</div>
+	</div>
+	</form>
+</div>
+	
+
+<div  id="movimiento" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<form name="Aut" novalidate>
+		<div class="modal-content">
+			<div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+		        <h4 class="modal-title">Movimiento de Autorización</h4>
+		    </div>
+		  	<div class="modal-body">
+		    	<div class="row">
+		    		<div class="col-md-8">
+
+		    			<label for="unidad">Tipo</label>
+						<select class="form-control  input-lg" ng-model="movimiento.tipo" ng-options="tipo.id as tipo.Nombre for tipo in tipos" required>
+							<option value="">Tipo</option>
+						</select>
+		    			
+		    		</div>
+		    		<div class="col-md-4">
+		    			<label for="folio">Fecha</label>
+	        			<input type="text" class="form-control  input-lg" ng-model="movimiento.fecha" data-date-format="YYYY-MM-DD" id="fechaMov">
+		    		</div>
+		    	</div>
+		    	<br>
+		    	<div class="row">
+		    		<div class="col-md-12">
+					
+		    			<label for="descripcion">Descripción</label>
+		    			<textarea name="descripcion" id="descripcion" class="form-control " ng-model="movimiento.descripcion" rows="5" mayusculas required></textarea>
+		    			
+		    		</div>
+		    	</div>
+		  	</div>
+		  	<br>
+			<div ng-show="mensaje2" class="alert  animate-show text-center" ng-class="tipoalerta">{{ mensaje2 }}</div>
+		  	<div class="modal-footer">
+		  		<button type="button" class="btn btn-default" ng-click="nuevomovimiento()" data-dismiss="modal">Limpiar</button>
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+		        <button type="button" class="btn btn-primary" ng-disabled="Aut.$invalid" ng-click="guardaMovimiento()">Guardar</button>
+		    </div>
+		</div>
+		</form>
+	</div>
+</div>
+
+<script>
+	$('#fechaAt').datetimepicker({
+
+		pickDate: true,                 //en/disables the date picker
+	    pickTime: false,                 //en/disables the time picker     
+	    showToday: true,                 //shows the today indicator
+	    language:'es'                  //sets language locale
+
+    });
+
+    $('#fechaMov').datetimepicker({
+
+		pickDate: true,                 //en/disables the date picker
+	    pickTime: false,                 //en/disables the time picker     
+	    showToday: true,                 //shows the today indicator
+	    language:'es'                  //sets language locale
+
+    });
+</script>

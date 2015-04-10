@@ -1,0 +1,437 @@
+<div ng-init="inicio()">
+	<h1>Detalle del Folio: {{ datos.folio }}  -  {{ datos.lesionado }}</h1>
+	<!-- <h1>Detalle del Folio: ROMV000000  -  Lesionado de Prueba</h1> -->
+	<div class="row">
+      
+      <div class="col-lg-12">
+        <div class="widget">
+            <div class="widget-title"><i class="fa fa-cubes" ng-class="{'fa-spin': busqueda}"></i> {{ estatus }} </div>
+            <div class="widget-body">
+               
+				<ul class="nav nav-tabs">
+				    <li class="active">
+				        <a data-target="#tab-one"  data-toggle="tab">Detalle</a>
+				    </li>
+				    <li>
+				        <a data-target="#tab-two" data-toggle="tab">Autorizaciones</a>
+				    </li>
+				    <li>
+				        <a data-target="#tab-three" data-toggle="tab">Salida de paquete</a>
+				    </li>
+				    <li>
+				        <a data-target="#tab-four" data-toggle="tab">Problema Documental</a>
+				    </li>
+				</ul>
+
+				<div ng-show="cargando">
+					<loading></loading>
+				</div>
+
+				<div ng-hide="cargando" class="tab-content reporte">
+					 
+				    <div id="tab-one" class="tab-pane active">
+
+						<br>
+						<fieldset disabled>
+							<legend>
+								Detalle del folio
+							</legend>
+
+				    		<div class="row">
+				    			<div class="col-md-4 col-sm-4">
+									<div class="form-group">
+										<label for="exp">Fecha atención:</label>
+										<input type="text" name="exp" class="form-control"  ng-model="datos.fechaatencion" >
+									</div>
+				    			</div>
+				    			<div class="col-md-4 col-sm-4">
+				    				<div class="form-group">
+										<label for="exp">Cliente:</label>
+										<input type="text" name="exp" class="form-control"  ng-model="datos.empresa" >
+									</div>
+				    			</div>
+				    			<div class="col-md-4 col-sm-4">
+				    				<div class="form-group">
+										<label for="exp">Clasificación:</label>
+										<input type="text" name="exp" class="form-control"  ng-model="datos.clasificacion" >
+									</div>
+				    			</div>
+				    		</div>
+							<div class="row">
+				    			<div class="col-md-8 col-sm-8">
+				    				<div class="form-group">
+										<label for="exp">Lesionado:</label>
+										<input type="text" name="exp" class="form-control" ng-model="datos.lesionado" >
+									</div>
+				    			</div>
+				    		</div>
+						
+							<div ng-repeat="dato in documentos">
+					    		<legend>
+					    			Etapa {{dato.etapa}}
+					    		</legend>
+
+					    		<h3 ng-if="dato.etapa > 1">{{dato.entrega}}</h3>
+								<div class="row">
+									<div class="col-md-4 col-sm-4">
+					    				<div class="form-group">
+											<label for="exp">Documentos Ingresados el dia:</label>
+											<input type="text" name="exp" class="form-control"  ng-model="dato.original">
+										</div>
+					    			</div>
+
+									<div class="col-md-4 col-sm-4">
+										<label for="exp">Pagos:</label>
+					    				<div class="form-group" ng-repeat="pagos in dato.pagos" >
+					    					
+											<div>
+												<label for="">Factura</label>
+												<input type="text" name="exp" class="form-control"  ng-model="pagos.PAU_factura">
+												<label for="">Total</label>
+												<input type="text" name="exp" class="form-control"  ng-model="pagos.PAU_pago">
+												<label for="">Fecha relación</label>
+												<input type="text" name="exp" class="form-control"  ng-model="pagos.PAU_fechaRel">
+												<label for="">Relación</label>
+												<input type="text" name="exp" class="form-control"  ng-model="pagos.PAU_relacion">
+											</div>
+					    						
+					    					
+										</div>
+										<div ng-hide="dato.pagos.length > 0" class="alert alert-info">
+											Sin datos de pago
+										</div>
+					    			</div>
+								</div>
+								
+							</div>
+						</fieldset>
+						<br>
+				    </div>
+					
+				    <div id="tab-two" class="tab-pane">	
+
+				    	<br>
+				    	<div ng-hide="autorizaciones" class="alert alert-info">
+							Sin autorizaciones registradas
+						</div>
+						<fieldset ng-show="autorizaciones" disabled>
+							<legend>
+								Detalle de Autorización
+							</legend>
+					    	<div class="row">
+								<div class="col-md-2">
+							        <label for="folio">Clave</label>
+							        <input type="text" class="form-control " ng-model="autorizaciones.AUM_clave">
+							    </div>
+							    <div class="col-md-2">
+							        <label for="folio">Fecha</label>
+							        <input type="text" class="form-control " ng-model="autorizaciones.AUM_fecha" id="fechaAt">
+							    </div>
+							    <div class="col-md-6">
+							        <label for="folio">Medico Tratante</label>
+							        <input type="text" class="form-control " ng-model="autorizaciones.AUM_medico"  mayusculas >
+							    </div>
+							</div>
+							<br>
+							<div class="row">
+								
+								<div class="col-md-12">
+									<div class="form-group">
+								        <label for="folio">Diagnostico</label>
+								        <textarea name="motivo" id="motivo" class="form-control " ng-disabled="edicion" ng-model="autorizaciones.AUM_diagnostico" rows="3"></textarea>
+							       	</div>
+							    </div>
+
+							</div>
+							<br>
+							<div class="table-responsive">
+								<table class="table table-bordered">
+								    <thead>
+								        <tr>
+											<th>Clave</th>
+											<th>Tipo</th>
+											<th>Descripción</th>
+											<th>Fecha</th>
+								        </tr>
+								    </thead>
+								    <tbody>
+								        <tr ng-repeat="movimiento in movimientos">
+											<td>{{movimiento.MOA_claveint}}</td>
+											<td>{{movimiento.TIM_nombre}}</td>
+											<td>{{movimiento.MOA_texto}}</td>
+											<td>{{movimiento.MOA_fecha}}</td>
+								        </tr> 
+								    </tbody>
+							    </table>
+							</div>
+						</fieldset>
+
+				    </div>
+					
+				    <div id="tab-three" class="tab-pane">
+						<br>
+						<div ng-hide="hospitalarios" class="alert alert-info">
+							Paciente dentro de paquete
+						</div>
+				    	<fieldset ng-show="hospitalarios" disabled>
+							<legend>Datos de Salida de Paquete</legend>
+						
+							<div class="row">
+								
+								<div class="col-md-2">
+							        <label for="folio">Clave</label>
+							        <input type="text" name="fecha" class="form-control " ng-model="hospitalarios.HOS_clave">
+							    </div>
+
+							    <div class="col-md-2">
+							        <label for="folio">Fecha Hospitalario</label>
+							        <input type="text" name="fecha" class="form-control " ng-model="hospitalarios.HOS_fechaHospitalario">
+							    </div>
+							    
+							</div>
+							<div class="row">
+
+								<div class="col-md-3">
+
+							        <label for="folio">Poliza</label>
+							        <input type="text" class="form-control "  ng-model="hospitalarios.HOS_poliza"  mayusculas >
+							    </div>
+
+
+							    <div class="col-md-2">
+
+							        <label for="inciso">Inciso</label>
+							        <input type="text" id="inciso" class="form-control "  ng-model="hospitalarios.HOS_inciso" >
+							    </div>
+
+							    <div class="col-md-2">
+									
+							        <label for="folio">Siniestro</label>
+							        <input type="text" name="siniestro" class="form-control "  ng-model="hospitalarios.HOS_siniestro">
+								
+							    </div>
+
+							    <div class="col-md-2">
+						
+								    <label for="folio">Reporte</label>
+								    <input type="text" class="form-control " name="reporte"  ng-model="hospitalarios.HOS_reporte">
+						
+							    </div>
+								
+							</div>
+							<div class="row">
+							    <div class="col-md-6">
+							        <label for="folio">Asegurado</label>
+							        <input type="text" class="form-control "  ng-model="hospitalarios.HOS_asegurado" >
+							    </div>
+							</div>
+							<br>
+
+							<legend>Datos Adicionales</legend>
+
+							<div class="row">
+								
+								<div class="col-md-6">
+							        <label for="folio">Ajustador</label>
+							        <input type="text" class="form-control " ng-model="hospitalarios.HOS_ajustador"  mayusculas >
+							    </div>
+
+								<div class="col-md-3">
+
+							        <label for="folio">Clave del Ajustador</label>
+							        <input type="text" class="form-control " ng-model="hospitalarios.HOS_ajustadorClave"  mayusculas >
+							    </div>
+							</div>
+	
+							<div class="row">
+								
+								<div class="col-md-6">
+
+							        <label for="folio">Quien Reporta</label>
+							        <input type="text" class="form-control " ng-model="hospitalarios.HOS_quienReporta"  mayusculas >
+							    </div>
+
+								<div class="col-md-6">
+
+							        <label for="folio">Quien Autoriza</label>
+							        <input type="text" class="form-control " ng-model="hospitalarios.HOS_quienAutoriza"  mayusculas >
+							    </div>
+							</div>
+						
+							<div class="row">
+								
+								<div class="col-md-6">
+
+							        <label for="folio">Traslado A:</label>
+							        <input type="text" class="form-control " ng-model="hospitalarios.HOS_trasladoA"  mayusculas >
+							    </div>
+
+								<div class="col-md-3">
+									<br>
+							        <label for="folio">Ambulancia</label>
+							        <label class="radio-inline">
+									  <input type="radio" name="inlineRadioOptions" ng-model="hospitalarios.HOS_ambulancia" id="inlineRadio1" value="1"> SI
+									</label>
+									<label class="radio-inline">
+									  <input type="radio" name="inlineRadioOptions" ng-model="hospitalarios.HOS_ambulancia" id="inlineRadio2" value="0"> NO
+									</label>
+							    </div>
+							</div>
+							
+							<div class="row">
+								
+								<div class="col-md-12">
+							        <label for="folio">Motivo de Hospitalización:</label>
+							        <textarea name="motivo" id="motivo" class="form-control " ng-model="hospitalarios.HOS_motivoHos" rows="5" mayusculas></textarea>
+							    </div>
+							</div>
+						</fieldset>						
+				    </div>
+
+				    <div id="tab-four" class="tab-pane">	
+						<br>
+						<div ng-hide="tickets.length > 0" class="alert alert-info">
+							Sin Problemas registrados
+						</div>
+						<fieldset ng-show="tickets.length > 0" disabled>
+					    	<div ng-repeat="ticket in tickets">
+
+								<div class="row">
+							        <div class="col-md-2">
+							            <label for="folio">Folio Interno</label>
+							            <input type="text" id="folio" class="form-control" ng-disabled="edicion" ng-model="ticket.id" >
+							        </div>
+
+							        <div class="col-md-2">
+							            <label for="folio">Fecha Registro</label>
+							            <input type="text" id="folio" class="form-control" ng-disabled="edicion" ng-model="ticket.fecha" >
+							        </div>
+
+							        <div class="col-md-2">
+							            <label for="folio">Registró</label>
+							            <input type="text" id="folio" class="form-control" ng-disabled="edicion" ng-model="ticket.usuario" >
+							        </div>
+							    </div>
+							    <br>
+							    <div class="row">
+							        <div class="col-md-3">
+							                <label for="categoria">Categoria</label>
+							                <input type="text" id="folio" class="form-control" ng-disabled="edicion" ng-model="ticket.categoria" >
+							        </div>
+							        <div class="col-md-3">
+							            <label for="subcategoria">Subcategoria</label>
+							            <input type="text" id="folio" class="form-control" ng-disabled="edicion" ng-model="ticket.subcategoria" >
+							        </div> 
+							        
+							        <div class="col-md-3">
+							            <label for="status">Status</label>
+							            <input type="text" id="folio" class="form-control bold" ng-disabled="edicion" ng-model="ticket.estatus" >
+							        </div> 
+							    </div>
+							    <br>
+							    <div class="row">
+									<div class="col-md-6">
+									  <label>Observaciones Iniciales</label>
+									  <textarea class="form-control" ng-model="ticket.observaciones" rows="3"></textarea>
+									</div>
+							    </div>
+								<br>
+							    <div class="row">
+								    <div class="col-md-6">
+
+								      <div class="panel panel-primary">
+								        <div class="panel-heading">
+								          <h3 class="panel-title">Historial de Comunicación</h3>
+								        </div>
+								        <div class="panel-body">
+								            <table class="table">
+								              <thead>
+								                <tr>
+								                  <th>Usuario</th>
+								                  <th>Descripcion</th>          
+								                  <th>Fecha</th>
+
+								                </tr>
+								              </thead>
+								              <tbody>
+								                <tr ng-repeat="comunicacion in ticket.comunicacion">
+								                  <td>{{comunicacion.Usuario}}</td>
+								                  <td>{{comunicacion.Descripcion}}</td>
+								                  <td>{{comunicacion.Fecha}}</td>
+								                </tr>
+								              </tbody>
+								            </table>
+								            
+								        </div>
+								      </div>
+
+								    </div>
+								    <div class="col-md-6">
+								      
+								      <div class="panel panel-primary">
+								        <div class="panel-heading">
+								          <h3 class="panel-title">Historial de Notas</h3>
+								        </div>
+								        <div class="panel-body">
+								            <table class="table">
+								              <thead>
+								                <tr>
+								                  <th>Usuario</th>
+								                  <th>Descripcion</th>          
+								                  <th>Fecha</th>
+
+								                </tr>
+								              </thead>
+								              <tbody>
+								                <tr ng-repeat="nota in ticket.notas">
+								                  <td>{{nota.Usuario}}</td>
+								                  <td>{{nota.Descripcion}}</td>
+								                  <td>{{nota.Fecha}}</td>
+								                </tr>
+								              </tbody>
+								            </table>
+								        </div>
+								     </div>
+
+								  </div>
+								</div>
+
+					    	</div>
+				    	</fieldset>
+				    </div>
+
+				</div>
+				
+            </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="DocumentoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">{{ nombredoc }}</h4>
+      </div>
+      <div class="modal-body">
+            <div ng-show="existe" class="documento" zoom>
+            		<img ng-src="{{documento}}" alt="Archivo">
+            		<div class="text-center">
+            			<button  ng-click="descarga(documento)" class="btn btn-default btn-lg btn-block"><i class="glyphicon glyphicon-download-alt"></i> Descargar</button>
+            			<a  href="{{documento}}" target="_blank" class="btn btn-default btn-lg btn-block"><i class="glyphicon glyphicon-file"></i> Abrir en otra Pagina</a>
+            		</div>
+            </div>
+            <div ng-hide="existe" class="alert alert-warning text-center">
+				Este documento no se encuentra disponible.
+			</div>
+      </div>
+      <div class="modal-footer">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
